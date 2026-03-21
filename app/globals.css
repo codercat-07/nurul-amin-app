@@ -1,0 +1,381 @@
+@font-face {
+  font-family: 'Bloom Velvet';
+  src: url('/Bloom Velvet.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #070712;
+  --color-foreground: #FFFFFF;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* ── reset & base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: #070712;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.2);
+  color: #fff;
+}
+
+/* ── Liquid Glass System ── */
+
+/* Pill nav glass */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.04) inset,
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+/* Standard liquid card */
+.liquid-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.04) inset,
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+/* Heavier glass panel for large sections */
+.liquid-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(60px) saturate(200%);
+  -webkit-backdrop-filter: blur(60px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.03) inset,
+    0 32px 80px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hover state with iridescent border */
+.liquid-card-hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.06) inset,
+    0 24px 70px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 229, 255, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+/* Chip / badge pills */
+.glass-chip {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+/* Nav background  */
+.glass-nav {
+  background: rgba(7, 7, 18, 0.8);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Typography ── */
+.f-display {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.f-display-it {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+}
+
+.f-ui {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  color: #94A3B8;
+  line-height: 1.7;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.f-mono {
+  font-family: var(--font-jetbrains), monospace;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Animated mesh background ── */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: meshFloat var(--dur, 20s) ease-in-out infinite alternate;
+}
+
+/* ── Keyframes ── */
+
+@keyframes meshFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(var(--tx1, 40px), var(--ty1, -30px)) scale(1.05); }
+  66%  { transform: translate(var(--tx2, -20px), var(--ty2, 50px)) scale(0.98); }
+  100% { transform: translate(var(--tx3, 30px), var(--ty3, -20px)) scale(1.03); }
+}
+
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+
+@keyframes prismPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0,229,255,0.2), 0 0 60px rgba(0,229,255,0.08);
+    border-color: rgba(255,255,255,0.1);
+  }
+  33%  {
+    box-shadow: 0 0 20px rgba(192,132,252,0.2), 0 0 60px rgba(192,132,252,0.08);
+    border-color: rgba(192,132,252,0.2);
+  }
+  66%  {
+    box-shadow: 0 0 20px rgba(52,211,153,0.2), 0 0 60px rgba(52,211,153,0.08);
+    border-color: rgba(52,211,153,0.2);
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes liquidFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes scrollFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes charDrop {
+  0%   { opacity: 0; transform: translateY(-40px) rotateX(-70deg) scale(0.88); filter: blur(6px); }
+  60%  { opacity: 1; transform: translateY(4px) rotateX(5deg) scale(1.02); filter: blur(0); }
+  100% { opacity: 1; transform: none; filter: blur(0); }
+}
+
+@keyframes gradSwipe {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes nameUp {
+  0%   { opacity: 0; transform: translateY(60px) skewX(-3deg); }
+  65%  { opacity: 1; transform: translateY(-3px) skewX(0.3deg); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.1); }
+  50%       { box-shadow: 0 0 40px rgba(0,229,255,0.6), 0 0 100px rgba(0,229,255,0.2); }
+}
+[data-theme="bw"] img[alt="Nurul Amin"] {
+  animation-name: glowPulseBW !important;
+}
+@keyframes glowPulseBW {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.2), 0 0 60px rgba(255,255,255,0.06); }
+  50%       { box-shadow: 0 0 40px rgba(255,255,255,0.4), 0 0 100px rgba(255,255,255,0.12); }
+}
+
+@keyframes chipIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes expIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: rgba(0,229,255,0.1); }
+  50%       { border-color: rgba(0,229,255,0.45); }
+}
+
+@keyframes liveRipple {
+  0%   { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes aminReveal {
+  0%   { opacity: 0; transform: scale(3.2) translateY(12px); filter: blur(36px); letter-spacing: 0.5em; }
+  40%  { opacity: 1; filter: blur(8px); letter-spacing: 0.12em; }
+  70%  { transform: scale(0.97) translateY(-3px); filter: blur(0px); letter-spacing: -0.018em; }
+  85%  { transform: scale(1.015); letter-spacing: -0.014em; }
+  100% { opacity: 1; transform: scale(1); filter: blur(0px); letter-spacing: -0.01em; }
+}
+
+@keyframes scrambleSettle {
+  0%   { text-shadow: 0 0 30px #00E5FF, 0 0 80px #00E5FF44; color: #00E5FF; }
+  60%  { text-shadow: 0 0 14px #fff, 0 0 40px #00E5FF66; color: #fff; }
+  100% { text-shadow: none; color: #FFFFFF; }
+}
+
+@keyframes shimmerLine {
+  0%   { left: -40%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* ══════════════════════════════════════ */
+/* B/W Theme Overrides (Nike-inspired)   */
+/* ══════════════════════════════════════ */
+
+[data-theme="bw"] body {
+  background: #000000;
+}
+
+[data-theme="bw"] ::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+[data-theme="bw"] .liquid-card {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset;
+}
+
+[data-theme="bw"] .liquid-panel {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset;
+}
+
+[data-theme="bw"] .glass-pill {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="bw"] .glass-chip {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* Subdue mesh orb saturation in B/W mode */
+[data-theme="bw"] .mesh-orb {
+  filter: grayscale(1) brightness(0.5) !important;
+}
+
+/* Mute all keyframe glow effects */
+[data-theme="bw"] .liquid-card:hover {
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.08) inset;
+}
