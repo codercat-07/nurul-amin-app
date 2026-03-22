@@ -38,7 +38,7 @@ function PageContent() {
   }, []);
 
   return (
-    <div style={{ background: D.bg0, minHeight: "100vh" }}>
+    <div style={{ background: D.bg0, minHeight: "100vh", paddingBottom: 50 }}>
       <Cursor />
       <Nav sec={sec} />
       <Hero />
@@ -48,6 +48,19 @@ function PageContent() {
       <Interests />
       <Contact />
       <Footer />
+
+      {/* Global sticky ticker — fixed to bottom of viewport on all devices */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 9999,
+        }}
+      >
+        <Marquee />
+      </div>
     </div>
   );
 }

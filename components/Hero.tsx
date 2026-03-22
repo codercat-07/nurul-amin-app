@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useT, useTheme } from "@/lib/ThemeContext";
-import Marquee from "./Marquee";
 
 // ── Scramble config ─────────────────────────────────────────────
 const LINE1 = "Md. Nurul";
@@ -350,8 +349,8 @@ export default function Hero() {
               alignItems: "center",
               gap: 8,
               padding: "7px 16px",
-              border: "1px solid rgba(255,70,70,0.25)",
-              background: "rgba(255,50,50,0.08)",
+              border: "1px solid rgba(37, 211, 102, 0.25)",
+              background: "rgba(37, 211, 102, 0.08)",
             }}
           >
             {/* Outer glow ring */}
@@ -372,18 +371,18 @@ export default function Hero() {
                   position: "absolute",
                   inset: 0,
                   borderRadius: "50%",
-                  background: "rgba(255,50,50,0.3)",
+                  background: "rgba(37, 211, 102, 0.3)",
                   animation: "liveRipple 1.8s ease-out infinite",
                 }}
               />
-              {/* Solid red dot */}
+              {/* Solid green dot */}
               <span
                 style={{
                   width: 7,
                   height: 7,
                   borderRadius: "50%",
-                  background: "#FF3232",
-                  boxShadow: "0 0 10px #FF3232, 0 0 20px #FF323266",
+                  background: "#25D366",
+                  boxShadow: "0 0 10px #25D366, 0 0 20px #25D36666",
                   display: "inline-block",
                   position: "relative",
                   zIndex: 1,
@@ -395,9 +394,9 @@ export default function Hero() {
                 fontFamily: "var(--font-jetbrains), monospace",
                 fontSize: ".6rem",
                 letterSpacing: ".2em",
-                color: "#FF6060",
+                color: "#25D366",
                 textTransform: "uppercase",
-                fontWeight: 400,
+                fontWeight: 600,
               }}
             >
               Available
@@ -454,9 +453,9 @@ export default function Hero() {
             ...fd(680),
           }}
         >
-          A Creative Designer, Digital Ninja and an Educator integrating
-          accounting expertise, technology, and visual storytelling to drive
-          meaningful impact across education and business.
+          A multidisciplinary problem-solver skilled in design, marketing, web
+          development, education, finance, and product research, focused on
+          turning ideas into impactful solutions.
         </p>
 
         {/* CTA buttons */}
@@ -615,10 +614,6 @@ export default function Hero() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
-      {/* Marquee — pinned to bottom of viewport */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 3 }}>
-        <Marquee />
       </div>
     </section>
   );

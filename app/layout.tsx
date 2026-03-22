@@ -38,22 +38,26 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "MD. Nurul Amin — Educator · Designer · Technologist",
+  title: "MD. Nurul Amin — a Multidisciplinary Problem-Solver",
   description:
-    "Portfolio of MD. Nurul Amin — 40th BCS Cadre Lecturer, Creative Designer, Web Developer, and Digital Entrepreneur based in Dhaka, Bangladesh.",
+    "Portfolio of MD. Nurul Amin — a multidisciplinary problem-solver skilled in design, marketing, web development, education, finance, and product research. Turning ideas into impactful solutions.",
   keywords: [
     "Nurul Amin",
     "Portfolio",
-    "BCS Cadre",
-    "Educator",
+    "Multidisciplinary",
+    "Problem-Solver",
     "Designer",
     "Web Developer",
+    "Marketing",
+    "Finance",
+    "Educator",
+    "BCS Cadre",
     "Bangladesh",
   ],
   openGraph: {
-    title: "MD. Nurul Amin — Portfolio",
+    title: "MD. Nurul Amin — a Multidisciplinary Problem-Solver",
     description:
-      "Dynamic educator and creative professional bridging accounting, design, and tech-driven learning.",
+      "Explore the portfolio of MD. Nurul Amin — skilled in design, marketing, web development, education, and finance, focused on turning ideas into impactful solutions.",
     type: "website",
     locale: "en_US",
   },

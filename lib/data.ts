@@ -64,9 +64,9 @@ export const EXP = [
     org: "Ministry of Education, People's Republic of Bangladesh",
     colKey: "teal" as ColorKey,
     pts: [
-      "Teaching accounting at higher education level to undergraduate students.",
+      "Building actionable and impactful visuals and web solutions for the internet.",
       "Developing course materials and delivering impactful, tech-integrated lectures.",
-      "Awarded 40th BCS Education Cadre — among the most competitive civil service exams in Bangladesh.",
+      "Joined as 40th BCS Education Cadre — among the most competitive civil service exams in Bangladesh.",
     ],
   },
   {

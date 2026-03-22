@@ -8,7 +8,7 @@ import Rev from "./Rev";
 export default function Experience() {
   const D = useT();
   const { mode } = useTheme();
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section

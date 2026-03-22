@@ -19,14 +19,17 @@ const ThemeContext = createContext<ThemeCtx>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<ThemeMode>("color");
+  const [mode, setMode] = useState<ThemeMode>("bw");
 
-  // Hydrate from localStorage
+  // Hydrate from localStorage — default is "bw"
   useEffect(() => {
     const stored = localStorage.getItem("theme-mode") as ThemeMode | null;
-    if (stored === "bw") {
-      setMode("bw");
+    const initial = stored ?? "bw";
+    setMode(initial);
+    if (initial === "bw") {
       document.documentElement.setAttribute("data-theme", "bw");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
     }
   }, []);
 
